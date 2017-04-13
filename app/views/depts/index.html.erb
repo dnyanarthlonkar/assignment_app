@@ -18,6 +18,7 @@
 	<th> Id </th>
       <th>Name</th>
 	  <th>Show Employees</th>
+	  <th>Add New Employees</th>
     </tr>
   </thead>
 
@@ -27,6 +28,7 @@
 	    <td><%= dept.try(:id) %></td>
         <td><%= dept.try(:name) %></td>
         <td><%= link_to 'Show Employees', employee_list_dept_path(dept), remote: true %></td>
+		<td><%= link_to  'Add Employee',  new_emp_path %>  </td>
       </tr>
     <% end %>
   </tbody>
@@ -34,5 +36,5 @@
 
 <br>
 
-<%= link_to  'Add Employee',  new_emp_path %>   |   <%= link_to 'Departments', depts_index_path %>
+ <%= link_to 'Departments', depts_index_path %>
 </div>
