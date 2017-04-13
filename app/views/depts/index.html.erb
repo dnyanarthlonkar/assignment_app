@@ -1,0 +1,38 @@
+<div id="main">
+
+<%= form_tag depts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Depts</h1>
+
+<table>
+  <thead>
+    <tr>
+	<th> Id </th>
+      <th>Name</th>
+	  <th>Show Employees</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @depts.each do |dept| %>
+      <tr>
+	    <td><%= dept.try(:id) %></td>
+        <td><%= dept.try(:name) %></td>
+        <td><%= link_to 'Show Employees', employee_list_dept_path(dept), remote: true %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to  'Add Employee',  new_emp_path %>   |   <%= link_to 'Departments', depts_index_path %>
+</div>
